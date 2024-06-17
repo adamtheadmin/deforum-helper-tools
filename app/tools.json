@@ -3,5 +3,10 @@
     "name": "Beat recorder",
     "description": "Sync prompt changes to your video using just your keyboard",
     "url": "/recorder"
+  },
+  {
+    "name": "Sync tool",
+    "description": "Sync recorded beats to the prompts of a video",
+    "url": "/sync-tool"
   }
 ]
