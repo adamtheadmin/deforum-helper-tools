@@ -37,7 +37,7 @@ const SyncTool = () => {
     const [error, setError] = useState<null|string>(null);
 
     useEffect(() => {
-        const lsBeats = window.localStorage.getItem('recorder');
+        const lsBeats = window.localStorage?.getItem('recorder') || beats;
         setBeats(lsBeats);
     }, []);
 

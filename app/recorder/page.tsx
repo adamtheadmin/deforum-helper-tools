@@ -5,7 +5,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const KeyRecorder = () => {
     const [isRecording, setIsRecording] = useState(false);
     const [startTime, setStartTime] = useState(null);
-    const [keyPresses, setKeyPresses] = useState(JSON.parse(window.localStorage.getItem('recorder') || '[]'));
+    let defaultData = '[]'
+    if (typeof window !== "undefined") {
+        defaultData = window?.localStorage.getItem('recorder') || '[]';
+    }
+    const [keyPresses, setKeyPresses] = useState(JSON.parse(defaultData));
     const [audioFile, setAudioFile] = useState(null);
     const audioRef = useRef(null);
 
@@ -21,7 +25,7 @@ const KeyRecorder = () => {
             if (audioRef.current) {
                 audioRef.current.pause();
             }
-            window.localStorage.setItem("recorder", JSON.stringify(keyPresses))
+            localStorage.setItem("recorder", JSON?.stringify(keyPresses))
         }
         setIsRecording(prevState => !prevState);
     };

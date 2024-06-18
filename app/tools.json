@@ -8,5 +8,15 @@
     "name": "Sync tool",
     "description": "Sync recorded beats to the prompts of a video",
     "url": "/sync-tool"
+  },
+  {
+    "name": "Resume from frame",
+    "description": "Resume a video from a certain frame",
+    "url": "/resume"
+  },
+  {
+    "name": "Zerofill tool",
+    "description": "Fill in a prompt schedule with zero values for a certain portaion, this can help reduce bugs in the camera animations",
+    "url": "/zerofill"
   }
 ]
