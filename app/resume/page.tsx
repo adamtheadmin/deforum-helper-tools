@@ -120,7 +120,7 @@ const ResumeTool = () => {
             </div>
 
             <div className="mb-3">
-                <label htmlFor="prompts" className="form-label">Defourm Prompts</label>
+                <label htmlFor="prompts" className="form-label">Deforum Prompts</label>
                 <textarea id="prompts" className="form-control" style={{height: 500}} value={prompts} onChange={e => setPrompts(e.target.value)}></textarea>
             </div>
 

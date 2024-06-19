@@ -8,9 +8,6 @@ import Head from 'next/head';
 const RootLayout: FC<{ children: ReactNode }> = ({ children }) => {
     return (
         <html lang="en">
-        <Head>
-            <title>Defourm Helper Tools</title>
-        </Head>
         <body>
         <div className="container-fluid">
             <div className="row vh-100">

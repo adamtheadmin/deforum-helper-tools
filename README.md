@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Deforum Helper Tools
+
+Welcome to the Deforum Helper Tools repository! This project is designed to assist AI video creators who use the Automatic1111 Deforum plugin. Our suite of tools helps streamline various aspects of AI video production, making it easier for you to create stunning videos and animations.
+
+## Features
+
+- **Camera Movement**: Easily create and control dynamic camera movements to add a professional touch to your videos.
+- **Render Resumption**: Resume your renders from any specific frame, ensuring you can pick up right where you left off without hassle.
+- **Beat Synchronization**: Sync your video elements to audio beats seamlessly, creating visually synchronized content effortlessly.
+- **Prompts Management**: Organize and manage your prompts effectively to streamline your creative process.
 
 ## Getting Started
 
-First, run the development server:
+To get started with Deforum Helper Tools, visit our hosted tools at:
+[Deforum Helper Tools](https://deforum-helper-tools.adamfowler.net/)
+
+### Prerequisites
+
+Ensure you have the following installed on your local machine:
+
+- Node.js (v14 or higher)
+- npm (v6 or higher)
+
+### Installation
+
+1. Clone the repository to your local machine:
+
+    ```bash
+    git clone https://github.com/yourusername/deforum-helper-tools.git
+    cd deforum-helper-tools
+    ```
+
+2. Install the dependencies:
+
+    ```bash
+    npm install
+    ```
+
+### Running the Development Server
+
+To run the Next.js development server, use the following command:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Pull requests and extra tools
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Pull requests are encouraged, if you have any tools to add, please make a PR.

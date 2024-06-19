@@ -5,13 +5,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const KeyRecorder = () => {
     const [isRecording, setIsRecording] = useState(false);
     const [startTime, setStartTime] = useState(null);
-    let defaultData = '[]'
-    if (typeof window !== "undefined") {
-        defaultData = window?.localStorage.getItem('recorder') || '[]';
-    }
-    const [keyPresses, setKeyPresses] = useState(JSON.parse(defaultData));
+    const [keyPresses, setKeyPresses] = useState([]);
     const [audioFile, setAudioFile] = useState(null);
     const audioRef = useRef(null);
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const defaultData = window?.localStorage.getItem('recorder') || '[]';
+            setKeyPresses(JSON.parse(defaultData));
+        }
+    }, []);
 
     const toggleRecording = () => {
         if (!isRecording) {
