@@ -75,7 +75,7 @@ const Zerofill = () => {
             {outputSchedule && (
                 <div className="mt-4">
                     <h2>Output Schedule:</h2>
-                    <textarea className="form-control w-100" readOnly={true}>{outputSchedule}</textarea>
+                    <textarea className="form-control w-100" readOnly={true} value={outputSchedule}></textarea>
                 </div>
             )}
             {error && (
