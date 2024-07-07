@@ -1,18 +1,18 @@
 "use client"
 import React, { useState, useEffect, useRef } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import saveHook from "@/hooks/saveHook";
 
 const KeyRecorder = () => {
     const [isRecording, setIsRecording] = useState(false);
     const [startTime, setStartTime] = useState(null);
-    const [keyPresses, setKeyPresses] = useState([]);
+    const [keyPresses, setKeyPresses] = saveHook<number[]>('key presses', []);
     const [audioFile, setAudioFile] = useState(null);
     const audioRef = useRef(null);
 
     useEffect(() => {
-        if (typeof window !== "undefined") {
-            const defaultData = window?.localStorage.getItem('recorder') || '[]';
-            setKeyPresses(JSON.parse(defaultData));
+        const beats = window.localStorage?.getItem('recorder.key presses');
+        if (beats) {
+            setKeyPresses(JSON.parse(beats));
         }
     }, []);
 
@@ -28,7 +28,6 @@ const KeyRecorder = () => {
             if (audioRef.current) {
                 audioRef.current.pause();
             }
-            localStorage.setItem("recorder", JSON?.stringify(keyPresses))
         }
         setIsRecording(prevState => !prevState);
     };

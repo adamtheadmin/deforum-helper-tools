@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect, useRef } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import saveHook from "@/hooks/saveHook";
 
 const examplePrompt = `{
     "0": "clear blue sky with fluffy clouds, the character looking joyful, bright sunlight",
@@ -26,13 +26,13 @@ const examplePrompt = `{
 }`;
 
 const ResumeTool = () => {
-    const [prompts, setPrompts] = useState<string>(examplePrompt);
-    const [inputSchedule, setInputSchedule] = useState<string>("0: (0), 30: (0) , 71: (0) , 128: (0) , 183: (0) , 218: (0) , 272: (0) , 307: (0) , 342: (0) , 367: (0) , 394: (0) , 432: (0) , 476: (0) , 503: (0) , 531: (0) , 557: (0) , 581: (0) , 610: (0) , 634: (0) , 662: (0) , 687: (0) , 716: (0) , 732: (0) , 747: (0) , 795: (0), 835: (-1.2) , 887: (1.2) , 942: (-1.2) , 995: (1.2) , 1050: (-1.2) , 1103: (1.2) , 1158: (-1.2) , 1213: (1.2) , 1267: (-1.2) , 1321: (1.2) , 1377: (-1.2) , 1432: (1.2) , 1487: (-1.2) , 1543: (1.2) , 1596: (-1.2) , 1651: (1.2) , 1701: (-1.2)");
-    const [resumeFromFrame, setResumeFromFrome] = useState<number>(325);
-    const [totalFrames, setTotalFrames] = useState<number>(570);
+    const [prompts, setPrompts] = saveHook<string>('prompts', examplePrompt);
+    const [inputSchedule, setInputSchedule] = saveHook<string>('inputSchedule', "0: (0), 30: (0) , 71: (0) , 128: (0) , 183: (0) , 218: (0) , 272: (0) , 307: (0) , 342: (0) , 367: (0) , 394: (0) , 432: (0) , 476: (0) , 503: (0) , 531: (0) , 557: (0) , 581: (0) , 610: (0) , 634: (0) , 662: (0) , 687: (0) , 716: (0) , 732: (0) , 747: (0) , 795: (0), 835: (-1.2) , 887: (1.2) , 942: (-1.2) , 995: (1.2) , 1050: (-1.2) , 1103: (1.2) , 1158: (-1.2) , 1213: (1.2) , 1267: (-1.2) , 1321: (1.2) , 1377: (-1.2) , 1432: (1.2) , 1487: (-1.2) , 1543: (1.2) , 1596: (-1.2) , 1651: (1.2) , 1701: (-1.2)");
+    const [resumeFromFrame, setResumeFromFrome] = saveHook<number>('resumeFromFrame', 325);
+    const [totalFrames, setTotalFrames] = saveHook<number>('totalFrames', 570);
 
-    const [outputSchedule, setOutputSchedule] = useState<null|string>(null);
-    const [outputPrompts, setOutputPrompts] = useState<null|string>(null);
+    const [outputSchedule, setOutputSchedule] = saveHook<null|string>('outputSchedule', null);
+    const [outputPrompts, setOutputPrompts] = saveHook<null|string>('outputPrompts', null);
     const [error, setError] = useState<null|string>(null);
 
     function process() {

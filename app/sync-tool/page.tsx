@@ -1,6 +1,6 @@
 "use client"
-import React, { useState, useEffect, useRef } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState, useEffect } from 'react';
+import saveHook from "@/hooks/saveHook";
 
 const examplePrompt = `{
     "0": "clear blue sky with fluffy clouds, the character looking joyful, bright sunlight",
@@ -26,18 +26,18 @@ const examplePrompt = `{
 }`;
 
 const SyncTool = () => {
-    const [prompts, setPrompts] = useState<string>(examplePrompt);
-    const [framerate, setFramerate] = useState<number>(15);
-    const [beats, setBeats] = useState<string>('[703,974,1485,1990,2331,4224,4266]');
-    const [scheduleValueA, setScheduleValueA] = useState<string>('-2');
-    const [scheduleValueB, setScheduleValueB] = useState<string>('2');
-    const [outputFrames, setOutputFrames] = useState<null|string>(null);
-    const [outputPrompts, setOutputPrompts] = useState<null|string>(null);
-    const [outputSchedule, setOutputSchedule] = useState<null|string>(null);
+    const [prompts, setPrompts] = saveHook<string>('prompts', examplePrompt);
+    const [framerate, setFramerate] = saveHook<number>('framerate', 15);
+    const [beats, setBeats] = saveHook<string>('beats', '[703,974,1485,1990,2331,4224,4266]');
+    const [scheduleValueA, setScheduleValueA] = saveHook<string>('scheduleValueA', '-2');
+    const [scheduleValueB, setScheduleValueB] = saveHook<string>('scheduleValueB', '2');
+    const [outputFrames, setOutputFrames] = saveHook<null|string>('outputFrames', null);
+    const [outputPrompts, setOutputPrompts] = saveHook<null|string>('outputPrompts', null);
+    const [outputSchedule, setOutputSchedule] = saveHook<null|string>('outputSchedule', null);
     const [error, setError] = useState<null|string>(null);
 
     useEffect(() => {
-        const lsBeats = window.localStorage?.getItem('recorder') || beats;
+        const lsBeats = window.localStorage?.getItem('recorder.key presses') || beats;
         setBeats(lsBeats);
     }, []);
 

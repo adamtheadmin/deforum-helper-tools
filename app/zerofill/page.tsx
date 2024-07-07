@@ -1,12 +1,12 @@
 "use client"
-import React, { useState, useEffect, useRef } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState } from 'react';
+import saveHook from "@/hooks/saveHook";
 
 const Zerofill = () => {
-    const [inputSchedule, setInputSchedule] = useState<string>("835: (-1.2) , 887: (1.2) , 942: (-1.2) , 995: (1.2) , 1050: (-1.2) , 1103: (1.2) , 1158: (-1.2) , 1213: (1.2) , 1267: (-1.2) , 1321: (1.2) , 1377: (-1.2) , 1432: (1.2) , 1487: (-1.2) , 1543: (1.2) , 1596: (-1.2) , 1651: (1.2) , 1701: (-1.2)");
-    const [start, setStart] = useState<number>(0);
-    const [end, setEnd] = useState<number>(835);
-    const [interval, setStateInterval] = useState<number>(10);
+    const [inputSchedule, setInputSchedule] = saveHook<string>('inputSchedule', "835: (-1.2) , 887: (1.2) , 942: (-1.2) , 995: (1.2) , 1050: (-1.2) , 1103: (1.2) , 1158: (-1.2) , 1213: (1.2) , 1267: (-1.2) , 1321: (1.2) , 1377: (-1.2) , 1432: (1.2) , 1487: (-1.2) , 1543: (1.2) , 1596: (-1.2) , 1651: (1.2) , 1701: (-1.2)");
+    const [start, setStart] = saveHook<number>('start', 0);
+    const [end, setEnd] = saveHook<number>('end', 835);
+    const [interval, setStateInterval] = saveHook<number>('interval', 10);
     const [outputSchedule, setOutputSchedule] = useState<null | string>(null);
     const [error, setError] = useState<null | string>(null);
 
